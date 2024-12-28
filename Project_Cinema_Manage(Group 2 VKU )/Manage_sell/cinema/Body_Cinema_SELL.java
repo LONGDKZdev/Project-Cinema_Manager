@@ -2,6 +2,10 @@ package cinema;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -11,7 +15,9 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
     private JTextField totalField;
     private JCheckBox chkAdultTicket, chkChildTicket, chkPopcorn, chkDrink;
     private JSpinner spnAdultTicket, spnChildTicket, spnPopcorn, spnDrink;
-
+    private JLabel JTxTTime, JTxTDate;
+    private JLabel lblImage;
+    
     @Override
     public void calculateTotal(ActionEvent e) {}
 
@@ -50,6 +56,29 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         totalField.setEditable(false);
         receiptPanel.add(totalField);
 
+    
+        
+        // Thêm JLabel hiển thị thời gian và ngày
+        JPanel panel = new JPanel();
+        panel.setBounds(20, 518, 380, 78);
+        receiptPanel.add(panel);
+        panel.setLayout(null);
+
+        JTxTDate = new JLabel("Loading...");
+        JTxTDate.setBounds(0, 0, 380, 42);
+        JTxTDate.setForeground(new Color(0, 128, 255));
+        JTxTDate.setFont(new Font("Yu Mincho Light", Font.BOLD, 25));
+        panel.add(JTxTDate);
+
+        JTxTTime = new JLabel("Loading...");
+        JTxTTime.setForeground(new Color(255, 0, 0));
+        JTxTTime.setVerticalAlignment(SwingConstants.BOTTOM);
+        JTxTTime.setFont(new Font("Yu Mincho Light", Font.BOLD, 25));
+        JTxTTime.setBounds(0, 36, 380, 42);
+        panel.add(JTxTTime);
+
+        setTime(); // Khởi động đồng hồ
+
         add(receiptPanel, BorderLayout.WEST);
 
         // Panel chứa các sản phẩm
@@ -58,10 +87,11 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         productContainer.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Thêm các sản phẩm vào container
-        addProduct(productContainer, "adult ticket (Vé người lớn)", "100,000 VND", true, 10);
-        addProduct(productContainer, "child ticket (Vé trẻ em)", "65,000 VND", true, 10);
-        addProduct(productContainer, "Popcorn (Bắp rang)", "40,000 VND", true, 10);
-        addProduct(productContainer, "drink (Nước uống)", "25,000 VND", true, 10);
+        //"/Manage_sell/Object_Manage_Icon/Adult%20ticket.png"
+        addProduct(productContainer, "adult ticket (Vé người lớn)", "100,000 VND", true, 10,"/Object_Manage_Icon/Adult ticket.png");
+        addProduct(productContainer, "child ticket (Vé trẻ em)", "65,000 VND", true, 10, "/Object_Manage_Icon/Chil ticket.png");
+        addProduct(productContainer, "Popcorn (Bắp rang)", "40,000 VND", true, 10, "");
+        addProduct(productContainer, "drink (Nước uống)", "25,000 VND", true, 10, "");
 
         // Thêm container vào JScrollPane
         JScrollPane productScrollPane = new JScrollPane(productContainer);
@@ -94,10 +124,10 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void addProduct(JPanel panel, String name, String price, boolean isSelectable, int maxQty) {
+    private void addProduct(JPanel panel, String name, String price, boolean isSelectable, int maxQty, String imagePath) {
         JPanel product = new JPanel();
         product.setLayout(null);
-        product.setBorder(new LineBorder(Color.GRAY));
+        product.setBorder(new LineBorder(Color.GRAY));  // Thêm viền cho panel chứa sản phẩm
         product.setPreferredSize(new Dimension(400, 100));
 
         JLabel lblName = new JLabel(name);
@@ -115,7 +145,24 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, maxQty, 1));
         spinner.setBounds(95, 71, 50, 20);
         product.add(spinner);
+        
+        // Tải ảnh từ classpath và căn giữa ảnh
+        URL resource = getClass().getResource(imagePath);
+        if (resource != null) {
+            ImageIcon icon = new ImageIcon(resource);
+            lblImage = new JLabel(new ImageIcon(icon.getImage().getScaledInstance(100, 80, Image.SCALE_SMOOTH)));
+            
+            // Đặt ảnh ở giữa panel
+            lblImage.setBounds(200, 10, 100, 80);  // Điều chỉnh vị trí ảnh cho hợp lý
+            lblImage.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));  // Thêm viền cho ảnh
+            												// chọn màu, độ dày khung (setBorder)
+            lblImage.setHorizontalAlignment(SwingConstants.CENTER);  // Căn giữa ảnh
+            product.add(lblImage);
+        } else {
+            System.err.println("Không tìm thấy ảnh: " + imagePath);
+        }
 
+        // Gắn checkbox và spinner vào các đối tượng đúng
         if (name.contains("người lớn")) {
             chkAdultTicket = checkBox;
             spnAdultTicket = spinner;
@@ -133,6 +180,7 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         panel.add(product);
     }
 
+
     private JButton createButton(String text, Color color, ActionListener actionListener) {
         JButton button = new JButton(text);
         button.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -142,5 +190,22 @@ public class Body_Cinema_SELL extends JPanel implements Method_For_Button {
         button.addActionListener(actionListener);
         return button;
     }
+
+    private void setTime() {
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Date date = new Date();
+                SimpleDateFormat tf = new SimpleDateFormat("h:mm:ss aa");
+                SimpleDateFormat df = new SimpleDateFormat("EEEE, dd-MM-yyyy");
+                String time = tf.format(date);
+                JTxTTime.setText(time.split(" ")[0] + " " + time.split(" ")[1]);
+                JTxTDate.setText(df.format(date));
+            }
+        }).start();
+    }
 }
-// Dự án quản lý rạp phim

@@ -55,7 +55,7 @@ public class Main_RunPrograming extends JFrame{
 
             // Nút Close
             JButton btnClose = new JButton("X");
-            btnClose.setFont(new Font("Tahoma", Font.PLAIN, 20));
+            btnClose.setFont(new Font("Tahoma", Font.BOLD, 20));
             btnClose.setFocusable(false);
             btnClose.setBackground(Color.RED);
             btnClose.setForeground(Color.WHITE);
@@ -66,7 +66,7 @@ public class Main_RunPrograming extends JFrame{
 
             // Nút Minimize
             JButton btnMinimize = new JButton("-");
-            btnMinimize.setFont(new Font("Tahoma", Font.PLAIN, 20));
+            btnMinimize.setFont(new Font("Tahoma", Font.BOLD, 50));
             btnMinimize.setFocusable(false);
             btnMinimize.setBackground(Color.GRAY);
             btnMinimize.setForeground(Color.WHITE);
@@ -77,7 +77,7 @@ public class Main_RunPrograming extends JFrame{
 
             // Nút Maximize
             JButton btnMaximum = new JButton("");
-            btnMaximum.setIcon(new ImageIcon(Main_RunPrograming.class.getResource("/Image_icon/icons8-rounded-square-48.png")));
+            btnMaximum.setIcon(new ImageIcon(Main_RunPrograming.class.getResource("/Image_icon/ButtonInFramer_(ounded-square).png")));
             btnMaximum.setPreferredSize(new Dimension(50, 30));
             btnMaximum.setForeground(Color.WHITE);
             btnMaximum.setFocusable(false);
