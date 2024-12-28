@@ -19,9 +19,9 @@ public class CinemaLogic {
                 + "      ************************ CINEMA RECEIPT ********************************\n"
                 + "      *****************************************************************************\n");
         receipt.append("Date: " + sdf.format(new Date()) + "\n");
-        receipt.append("Date: " + sdf_Time.format(new Date()) + "\n");
+        receipt.append("Time: " + sdf_Time.format(new Date()) + "\n");
         
-        receipt.append("purchase invoice(Hóa đơn mua):\n");
+        receipt.append("PURCHASE INVOICE(Hóa đơn mua):\n");
 
         if (isAdultSelected) {
             totalPrice += adultQty * 100000;
