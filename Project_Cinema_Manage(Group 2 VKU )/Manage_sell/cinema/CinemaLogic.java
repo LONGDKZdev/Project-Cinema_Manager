@@ -15,7 +15,9 @@ public class CinemaLogic {
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MM-yyyy, HH:mm:ss");
         SimpleDateFormat sdf_Time = new SimpleDateFormat("HH:mm:ss");
 
-        receipt.append("************************ CINEMA RECEIPT ************************\n");
+        receipt.append("      *****************************************************************************\n"
+                + "      ************************ CINEMA RECEIPT ********************************\n"
+                + "      *****************************************************************************\n");
         receipt.append("Date: " + sdf.format(new Date()) + "\n");
         receipt.append("Date: " + sdf_Time.format(new Date()) + "\n");
         
