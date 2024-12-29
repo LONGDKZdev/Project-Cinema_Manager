@@ -24,8 +24,7 @@ public class Main_RunPrograming extends JFrame{
             mainFrame.setUndecorated(true); // Bỏ khung mặc định
             mainFrame.getContentPane().setLayout(new BorderLayout());
 
-            
-            
+
             // Thiết lập hoạt ảnh mở cửa sổ
             mainFrame.addWindowListener(new WindowAdapter() {
                 public void windowOpened(WindowEvent e) {
