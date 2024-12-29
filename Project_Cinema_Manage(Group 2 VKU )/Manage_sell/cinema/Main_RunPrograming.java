@@ -20,9 +20,10 @@ public class Main_RunPrograming extends JFrame{
             //thiết lập ở trung tâm màng hình
             //mainFrame.setLocationRelativeTo(null);
             
-            mainFrame.setLocation(200, 200);
+            mainFrame.setLocation(100, 100);
             mainFrame.setUndecorated(true); // Bỏ khung mặc định
             mainFrame.getContentPane().setLayout(new BorderLayout());
+
 
             // Thiết lập hoạt ảnh mở cửa sổ
             mainFrame.addWindowListener(new WindowAdapter() {
