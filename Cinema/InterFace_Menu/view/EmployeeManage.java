@@ -496,7 +496,8 @@ private List<Employee> employee ;
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-    	try {// đã thêm try catch để không bị dừng chương trình(btnFind)
+    	try {
+    		// đã thêm try catch để không bị dừng chương trình(btnFind)
             DAOEmployee dao = new DAOEmployee();
             String keyword = JOptionPane.showInputDialog(this, "Enter Employee ID to find:");
             if (keyword != null && !keyword.trim().isEmpty()) {

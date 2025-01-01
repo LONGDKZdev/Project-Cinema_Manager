@@ -81,7 +81,7 @@ private List<Product> product ;
 
         jLableName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLableName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLableName.setText("Name:");
+        jLableName.setText("NameProduct:");
         jPanel2.add(jLableName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 90, 30));
 
         jLableType.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -198,7 +198,7 @@ private List<Product> product ;
 
             },
             new String [] {
-                "Number", "ProductID", "Name", "Type", "Quantity", "Price"
+                "Number", "ProductID", "nameProduct", "Type", "Quantity", "Price"
             }
         ));
         jScrollPane1.setViewportView(TableResult);
@@ -220,28 +220,33 @@ private List<Product> product ;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-       DAOProduct dao = new DAOProduct();
-    String keyword = JOptionPane.showInputDialog(this, "Enter Product ID to find:");
-    if (keyword != null && !keyword.trim().isEmpty()) {
-     product = dao.searchProduct(keyword);
+        try {
+            DAOProduct dao = new DAOProduct();
+            String keyword = JOptionPane.showInputDialog(this, "Enter Product ID to find:");
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                List<Product> product = dao.searchProduct(keyword);
 
-    Model.setRowCount(0); 
-    int count = 1;
-    for (Product p : product) {
-        Model.addRow(new Object[]{
-            count++,
-            p.getProductID(),
-            p.getNameProduct(),
-            p.getType(),
-            p.getQuantity(),
-            p.getPrice()
-            
-        });
+                Model.setRowCount(0);
+                int count = 1;
+                for (Product p : product) {
+                    Model.addRow(new Object[]{
+                        count++,
+                        p.getProductID(),
+                        p.getNameProduct(),
+                        p.getType(),
+                        p.getQuantity(),
+                        p.getPrice()
+                    });
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Keyword ID is required!");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "An error occurred: " + e.getMessage());
+            e.printStackTrace(); // Log the error for debugging purposes
+        }
     }
-    } else {
-    JOptionPane.showMessageDialog(this, "Keyword ID is required!");
-}
-    }//GEN-LAST:event_btnFindActionPerformed
+//GEN-LAST:event_btnFindActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
    DAOProduct dao = new DAOProduct();
