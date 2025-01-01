@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SQLServerConnection {
-    private static final String SERVER_NAME = "DESKTOP-12FN1VC"; 
+    private static final String SERVER_NAME = "WINDOWS-10"; 
     private static final String DATABASE_NAME = "CinemaDataBase"; 
     private static final String USERNAME = "sa"; 
     private static final String PASSWORD = "123"; 
@@ -28,7 +28,7 @@ public class SQLServerConnection {
         }
         return connection;
     }
-}
+
 
     /*
     public static void main(String[] args) {
@@ -43,4 +43,4 @@ public class SQLServerConnection {
 
 	}
 	*/
-
+}
