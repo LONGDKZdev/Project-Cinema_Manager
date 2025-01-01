@@ -1,4 +1,4 @@
-package loginadmin_An;
+package Admin_An;
 
 import java.awt.EventQueue;
 
@@ -51,7 +51,7 @@ public class cinema extends JFrame {
 	 */
 	public cinema() {
 		setTitle("Login Admin");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(cinema.class.getResource("/fileanh/admin-login-icon-15.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(cinema.class.getResource("/Admin_An__Image__/admin-login-icon-15.jpg")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setBounds(100, 100, 1214,620 );
@@ -96,17 +96,17 @@ public class cinema extends JFrame {
 	        });
 	        btnLogin.setFont(new Font("Times New Roman", Font.BOLD, 21));
 	        btnLogin.setBounds(297, 431, 228, 118);
-	        btnLogin.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/admin-login-icon-16.jpg")));
+	        btnLogin.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/admin-login-icon-16.jpg")));
 	        contentPane.add(btnLogin);
 
 		
 		JLabel lblNewLabel_4 = new JLabel("nen password");
-		lblNewLabel_4.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/e36cf9e1-dd47-421d-907a-0b2ada4ed316.jpg")));
+		lblNewLabel_4.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/e36cf9e1-dd47-421d-907a-0b2ada4ed316.jpg")));
 		lblNewLabel_4.setBounds(276, 343, 40, 33);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("nen login");
-		lblNewLabel_1_2.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/e66d4bd0-b81d-4f5a-aa28-d12f0b503f78.jpg")));
+		lblNewLabel_1_2.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/e66d4bd0-b81d-4f5a-aa28-d12f0b503f78.jpg")));
 		lblNewLabel_1_2.setForeground(Color.RED);
 		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 45));
 		lblNewLabel_1_2.setBounds(350, 54, 80, 80);
@@ -148,23 +148,23 @@ public class cinema extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		lblNewLabel_2 = new JLabel("anh nen");
-		lblNewLabel_2.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/23a9ea2b-cdb4-4719-91c3-567797eb7e44.jpg")));
+		lblNewLabel_2.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/23a9ea2b-cdb4-4719-91c3-567797eb7e44.jpg")));
 		lblNewLabel_2.setBounds(29, 234, 206, 250);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("nen username");
-		lblNewLabel_4_1.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/fb40ca7a-35a6-41ce-be67-8996a06cc099.jpg")));
+		lblNewLabel_4_1.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/fb40ca7a-35a6-41ce-be67-8996a06cc099.jpg")));
 		lblNewLabel_4_1.setBounds(276, 264, 40, 33);
 		contentPane.add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("poster");
-		lblNewLabel_5.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/a012edcc-6807-4f60-8267-4bc659ef83bb.jpg")));
+		lblNewLabel_5.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/a012edcc-6807-4f60-8267-4bc659ef83bb.jpg")));
 		lblNewLabel_5.setBounds(587, 49, 590, 500);
 		contentPane.add(lblNewLabel_5);
 		
 		lblNewLabel_3 = new JLabel("nen anh");
 		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setIcon(new ImageIcon(cinema.class.getResource("/fileanh/pngtree-abstract-background-of-an-empty-cinema-in-3d-rendered-model-picture-image_3708942.jpg")));
+		lblNewLabel_3.setIcon(new ImageIcon(cinema.class.getResource("/Admin_An__Image__/pngtree-abstract-background-of-an-empty-cinema-in-3d-rendered-model-picture-image_3708942.jpg")));
 		lblNewLabel_3.setBounds(0, 0, 1200, 620);
 		contentPane.add(lblNewLabel_3);
 	}

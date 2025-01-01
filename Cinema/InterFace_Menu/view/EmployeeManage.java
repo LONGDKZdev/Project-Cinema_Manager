@@ -412,7 +412,7 @@ private List<Employee> employee ;
     if (RdNam.isSelected()) {
      gender = "Man";
     } else if (RdNu.isSelected()) {
-    gender = "Female";
+    gender = "Woman";
     }
     employee.setGender(gender);
     
@@ -474,7 +474,7 @@ private List<Employee> employee ;
             employee.setEmail(txtEmail.getText());
             employee.setSalary(Integer.parseInt(txtLuong.getText()));
 
-            String gender = RdNam.isSelected() ? "Man" : "Female";
+            String gender = RdNam.isSelected() ? "Man" : "Woman";
             employee.setGender(gender);
 
             boolean success = dao.AddEmployee(employee);

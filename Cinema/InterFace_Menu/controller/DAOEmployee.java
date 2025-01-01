@@ -60,7 +60,7 @@ public class DAOEmployee {
     try {
         if (conn == null) {
                 System.out.println("Database connection failed!");
-                return false;
+                return true;
         }
         
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -75,7 +75,8 @@ public class DAOEmployee {
         ps.setInt(9,employee.getSalary());
         ps.executeUpdate();
            
-    } catch(SQLException e) {
+    } 
+    catch(SQLException e) {
    e.printStackTrace();
     JOptionPane.showMessageDialog(null, "Error adding employee: " + e.getMessage());
     }

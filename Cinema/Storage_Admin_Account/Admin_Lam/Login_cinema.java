@@ -1,9 +1,18 @@
-package Login_cinema;
+package Admin_Lam;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Login_cinema extends JFrame {
 
@@ -27,11 +36,13 @@ public class Login_cinema extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 500);
         contentPane = new JPanel() {
-            @Override
+			private static final long serialVersionUID = 1L;
+
+			@Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 // Draw background image
-                ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/Login_cinema/anh_nen.jpg"));
+                ImageIcon backgroundImage = new ImageIcon(getClass().getResource(""));
                 g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
             }
         };
@@ -81,6 +92,12 @@ public class Login_cinema extends JFrame {
             JOptionPane.showMessageDialog(this, "Username: " + username + "\nPassword: " + password);
         });
         contentPane.add(btnLogin);
+        
+        JLabel BackGround = new JLabel("");
+        BackGround.setIcon(new ImageIcon(Login_cinema.class.getResource("/Admin_Lam__Image__/anh_nen.jpg")));
+        BackGround.setHorizontalAlignment(SwingConstants.CENTER);
+        BackGround.setBounds(0, 0, 784, 461);
+        contentPane.add(BackGround);
 
         // Repaint the panel when the frame is resized
         addComponentListener(new java.awt.event.ComponentAdapter() {
