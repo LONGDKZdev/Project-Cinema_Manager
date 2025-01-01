@@ -14,6 +14,7 @@ public class CinemaLogic {
         int totalPrice = 0;
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MM-yyyy, HH:mm:ss");
         SimpleDateFormat sdf_Time = new SimpleDateFormat("HH:mm:ss");
+        
 
         receipt.append("      *****************************************************************************\n"
                 + "      ************************ CINEMA RECEIPT ********************************\n"
